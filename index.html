@@ -1,0 +1,113 @@
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Javascript Task 2</title>
+</head> 
+
+<body>
+
+    <script type="text/javascript">
+      
+        function interestCalculator(arr)	{
+          
+            interestData = [];
+            
+            for (var i = 0; i < arr.length; i++)	{
+
+                p = arr[i].principal; 	
+                t = arr[i].time; 		
+
+                var rate = 1;			
+
+                if (p >= 2500 && t > 1 && t < 3)	{
+
+                    rate = 3; 
+                   
+                }
+                else if (p >= 2500 && t >= 3) {
+                
+                    rate = 4; 
+                }
+                else if (p < 2500  || t <=1)	{
+                 
+                    rate = 2; 
+                }
+             
+                interest = p * rate * t / 100;
+
+                var object_data = {
+                    principal: p,
+                    time: t,
+                    rate: rate,
+                    interest: interest
+                };
+
+                interestData.push(object_data); 
+
+            }
+
+            return interestData; 
+
+        } 
+
+        var data_object = {}; 
+              
+        var data = [
+           
+            {
+                principal: 2500,
+                time: 1.8
+            },
+           
+            {
+                principal: 1000,
+                time: 5
+            },
+            
+            {
+                principal: 3000,
+                time: 1
+            },
+            
+            {
+                principal: 2000,
+                time: 3
+            }
+        ];
+
+        console.log(interestCalculator(data)); 
+
+        var interestData = interestCalculator(data);
+
+        // Write to Webpage so non-technical users can see it
+
+        var date = new Date();
+
+        document.write("<h1>Simple Interest</h1>");
+        document.write("<i style = 'color: rgb(150, 150, 150)'>Dara Nelson <span style = 'font-size: 12px'>" + date + "</span></i> ")
+
+        for (var i = 0; i < interestData.length; i++) {
+
+            p = interestData[i].principal;
+            r = interestData[i].rate;
+            t = interestData[i].time;
+            interest = interestData[i].interest;
+
+            document.write("<p style = 'background: black;width: 200px; color: white'> Object " + Number(i + 1));
+            document.write("<p style = 'background: azure; width: 200px'>Principal = " + p + "<br> Rate = " + r + "<br> Time = " + t + "<br> Interest = " + interest + "</p>");
+            document.write("</p>")
+        }
+    </script>
+
+</body>
+
+</html>
+
+    
+    
+    <script src="" async defer></script>
+</body>
+</html>
